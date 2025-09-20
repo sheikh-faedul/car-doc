@@ -33,7 +33,8 @@ const BookingRow = ({ booking,handleDelete,handleConfirm }) => {
             </td>
             <td> ${price}</td>
             <th>
-                { status === 'confirm'? <span className="font-bold text-primary">confirmed</span> :                    <button onClick={()=>handleConfirm(_id)} className="btn btn-ghost btn-xs">confirm</button>}
+                { status === 'confirm'? <span className="font-bold text-primary">confirmed</span> :   
+                 <button onClick={()=>handleConfirm(_id)} className="btn btn-ghost btn-xs">confirm</button>}
             </th>
         </tr>
     );

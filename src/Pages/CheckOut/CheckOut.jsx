@@ -1,15 +1,18 @@
 import { useContext } from "react";
-import { useLoaderData } from "react-router";
+import { useLoaderData, useNavigate } from "react-router";
 import { AuthContext } from "../../Provider/AuthProvider";
+import Swal from 'sweetalert2'
 
 
 
 const CheckOut = () => {
 
     const service = useLoaderData();
+    const navigate = useNavigate();
     const { title, price, _id,img } = service;
 
     const {user}=useContext(AuthContext);
+    
      
     const handleCheckout = e =>{
         e.preventDefault();
@@ -40,9 +43,16 @@ const CheckOut = () => {
             console.log(data);
 
             if(data.insertedId){
-                alert('checkout added succesfully')
+              
+                  Swal.fire({
+            icon: 'success',
+            title: 'Success!',
+            text: 'Added successfully',
+            confirmButtonText: 'OK'
+        })
+            
             }
-           
+           navigate('/') 
         })
 
 

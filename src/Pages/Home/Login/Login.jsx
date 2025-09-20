@@ -1,10 +1,11 @@
- import { Link,   useNavigate } from 'react-router';
+ import { Link,   useLocation,   useNavigate } from 'react-router';
 import img from '../../../assets/images/login/login.svg'
 import { useContext } from 'react';
 import { AuthContext } from '../../../Provider/AuthProvider';
 
 const Login = () => {
   const {singIn}=useContext(AuthContext);
+  const locatioin = useLocation();
   const navigate = useNavigate();
 const handleLogin = e =>{
     e.preventDefault();
@@ -18,7 +19,7 @@ const handleLogin = e =>{
         const user=result.user;
         
         console.log(user)
-        navigate('/')
+        navigate(locatioin?.state ? locatioin.state : '/')
     })
     .catch(error=>console.error(error));
 }
