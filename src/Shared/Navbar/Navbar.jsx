@@ -15,16 +15,16 @@ const Navbar = () => {
  }
 
   const navItems=<>
-      <li><Link to='/'>Home</Link></li>
-      <li><Link to='/about'>About</Link></li>
+      <li><Link to='/' className="font-bold">Home</Link></li>
+      <li><Link to='/about' className="font-bold">About</Link></li>
       {
         user?.email?
         <>
-        <li><Link to='/bookings'>My Bookings</Link></li>
-        <li><button onClick={handleLogout}>Log Out</button></li>
+        <li><Link to='/bookings' className="font-bold">My Bookings</Link></li>
+        <li><button onClick={handleLogout} className="font-bold">Log Out</button></li>
         </>
         :
-         <li><Link to='/login'>LogIn</Link></li>
+         <li><Link to='/login' className="font-bold">LogIn</Link></li>
       }
   </>
     return (
