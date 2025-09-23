@@ -1,10 +1,12 @@
-import { Link } from "react-router";
+import { Link, useNavigate } from "react-router";
 import logo from "../../assets/logo.svg"
 import { useContext } from "react";
 import { AuthContext } from "../../Provider/AuthProvider";
  
 
 const Navbar = () => {
+
+const navigate = useNavigate()
 
  const {user,logout}=useContext(AuthContext)
  const handleLogout=()=>{
@@ -13,6 +15,14 @@ const Navbar = () => {
   .catch(error=>{console.error()});
   
  }
+  const handleAppoinment =()=>{
+    if(user?.email){
+      navigate('/bookings')
+    }
+    else{
+      navigate('/login')
+    }
+  }
 
   const navItems=<>
       <li><Link to='/' className="font-bold">Home</Link></li>
@@ -36,7 +46,7 @@ const Navbar = () => {
       </div>
       <ul
         tabIndex={0}
-        className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        className="menu menu-sm dropdown-content bg-base-100 rounded-box  mt-3 w-52 p-2 shadow">
         {navItems}
       </ul>
     </div>
@@ -48,7 +58,7 @@ const Navbar = () => {
     </ul>
   </div>
   <div className="navbar-end">
-   <button className="btn btn-outline btn-secondary">Appoinment</button>
+   <button onClick={handleAppoinment} className="btn btn-outline btn-secondary">Appoinment</button>
   </div>
 </div>
     );

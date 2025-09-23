@@ -72,7 +72,7 @@ const Bookings = () => {
       <h1>bookings :{bookings.length}</h1>
       <div className="overflow-x-auto">
         <table className="table">
-          {/* head */}
+          {/* /* head */ }
           <thead>
             <tr>
               <th>
